@@ -10,12 +10,22 @@ std::vector<int> Range(int start, int end, int incr);
 
 int main()
 {
-	// Range example
-	std::vector<int> myVec = Range(1, 10, 3);
+	// Investment example
 
-	for (auto var : myVec) {
-		std::cout << var << std::endl;
+	double investment = 0.0, investRate = 0.0;
+
+	std::cout << "How much to invest : ";
+	std::cin >> investment;
+	std::cout << "Investment Rate : ";
+	std::cin >> investRate;
+
+	investRate *= .01;
+
+	for (auto var : Range(1, 10, 1)) {
+		investment += investment * investRate;
 	}
+
+	std::cout << "Value after 10 years is : " << investment;
 	return 0;
 }
 
