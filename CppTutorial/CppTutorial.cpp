@@ -3,27 +3,49 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <vector>
 
 int main()
 {
-	std::string sAge = "0";
-	int age;
-	std::cout << "Enter age: ";
-	getline(std::cin, sAge);
-	age = std::stoi(sAge);
+	// Enter calculation (ex. 5 + 6) : 10 - 6
+	// 10.0 - 6.0 = 4.0
+	// Please enter only +, -, *, /
 
-	if (age == 5) {
-		std::cout << "Go to Kindergarden.";
+	std::string sCalculation;
+	std::vector<std::string> vString;
+	std::string indivString;
+	double a, b, result;
+	char space = ' ';
+
+	std::cout << "Enter calculation (ex. 5 + 6) : ";
+	getline(std::cin, sCalculation);
+
+	std::stringstream ss(sCalculation);
+
+	while (getline(ss, indivString, space)) {
+		vString.push_back(indivString);
 	}
-	else if (age >= 6 && age <= 17) {
-		printf("Go to grade %d", age - 5);
-	}
-	else if (age > 17) {
-		std::cout << "Go to college.";
+
+	a = std::stod(vString[0]);
+	b = std::stod(vString[2]);
+	
+	if (vString[1] == "+") {
+		result = a + b;
+		printf("%.1f + %.1f = %.1f", a, b, result);
+	} else if (vString[1] == "-") {
+		result = a - b;
+		printf("%.1f - %.1f = %.1f", a, b, result);
+	} else if (vString[1] == "*") {
+		result = a * b;
+		printf("%.1f * %.1f = %.1f", a, b, result);
+	} else if (vString[1] == "/") {
+		result = a / b;
+		printf("%.1f / %.1f = %.1f", a, b, result);
 	}
 	else {
-		std::cout << "Too young for school.";
+		std::cout << "Please enter only +, -, *, /";
 	}
+	
 
 	return 0;
 }
