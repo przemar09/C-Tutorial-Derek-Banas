@@ -6,17 +6,27 @@
 #include <vector>
 #include <numeric>
 
+std::vector<int> Range(int start, int end, int incr);
+
 int main()
 {
-	// List of numbers 1-10 and print even numbers.
+	// Range example
+	std::vector<int> myVec = Range(1, 10, 3);
 
-	std::vector<int> myVec(10);
-	std::iota(std::begin(myVec), std::end(myVec), 1);
-
-	for (auto val : myVec) {
-		if (val % 2 == 0) {
-			std::cout << val << " is an even number." << std::endl;
-		}
+	for (auto var : myVec) {
+		std::cout << var << std::endl;
 	}
 	return 0;
+}
+
+std::vector<int> Range(int start, int end, int incr) {
+	
+	std::vector<int> result = {};
+
+	while (start <= end) {
+		result.push_back(start);
+		start += incr;
+	}
+
+	return result;
 }
