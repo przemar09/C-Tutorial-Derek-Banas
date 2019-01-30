@@ -1,2 +1,3 @@
 ﻿  CppTutorial.cpp
+c:\users\przemo\documents\visual studio 2017\cpptutorial\cpptutorial\cpptutorial.cpp(12): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
   CppTutorial.vcxproj -> C:\Users\Przemo\Documents\Visual Studio 2017\CppTutorial\Debug\CppTutorial.exe

@@ -5,30 +5,25 @@
 #include <sstream>
 #include <vector>
 #include <numeric>
-
+#include <ctime>
 
 int main()
 {
-	// Christmas tree example
+	srand(time(NULL));
+	int secretNum = std::rand() % 11;
+	int guess = 0;
 
-	int height = 0;
+	while (true) {
 
-	std::cout << "Give the number of rows : ";
-	std::cin >> height;
+		std::cout << "Give a number : ";
+		std::cin >> guess;
+		if (guess < secretNum) std::cout << "Too small.";
+		if (guess > secretNum) std::cout << "Too big.";
 
-	for (int i = 1; i <= height; i++) {
-		for (int j = height - i; j >= 0; j--) {
-			std::cout << " ";
-		}
-		for (int k = 1; k <= i * 2 - 1; k++) {
-			std::cout << "#";
-		}
-		std::cout << std::endl;
+		if (guess == secretNum) break;
 	}
-	for (int i = 0; i <= height - 1; i++) {
-		std::cout << " ";
-	}
-	std::cout << "#" << std::endl;
+
+	std::cout << "You guessed it!";
 
 	return 0;
 }
