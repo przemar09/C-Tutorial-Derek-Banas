@@ -6,37 +6,29 @@
 #include <vector>
 #include <numeric>
 
-std::vector<int> Range(int start, int end, int incr);
 
 int main()
 {
-	// Investment example
+	// Christmas tree example
 
-	double investment = 0.0, investRate = 0.0;
+	int height = 0;
 
-	std::cout << "How much to invest : ";
-	std::cin >> investment;
-	std::cout << "Investment Rate : ";
-	std::cin >> investRate;
+	std::cout << "Give the number of rows : ";
+	std::cin >> height;
 
-	investRate *= .01;
-
-	for (auto var : Range(1, 10, 1)) {
-		investment += investment * investRate;
+	for (int i = 1; i <= height; i++) {
+		for (int j = height - i; j >= 0; j--) {
+			std::cout << " ";
+		}
+		for (int k = 1; k <= i * 2 - 1; k++) {
+			std::cout << "#";
+		}
+		std::cout << std::endl;
 	}
+	for (int i = 0; i <= height - 1; i++) {
+		std::cout << " ";
+	}
+	std::cout << "#" << std::endl;
 
-	std::cout << "Value after 10 years is : " << investment;
 	return 0;
-}
-
-std::vector<int> Range(int start, int end, int incr) {
-	
-	std::vector<int> result = {};
-
-	while (start <= end) {
-		result.push_back(start);
-		start += incr;
-	}
-
-	return result;
 }
