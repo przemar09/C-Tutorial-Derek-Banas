@@ -1,2 +1,4 @@
 ﻿  CppTutorial.cpp
+c:\users\programmer\documents\visual studio 2017\cpptutorial\cpptutorial\cpptutorial.cpp(28): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\programmer\documents\visual studio 2017\cpptutorial\cpptutorial\cpptutorial.cpp(29): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   CppTutorial.vcxproj -> C:\Users\Programmer\Documents\Visual Studio 2017\CppTutorial\Debug\CppTutorial.exe
