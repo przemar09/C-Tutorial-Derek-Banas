@@ -8,31 +8,31 @@
 #include <ctime>
 #include <string>
 
+std::string VectorToString(std::vector<std::string> stringVector, char separator);
+
 int main()
 {
-	std::string  normalString= "", secretString = "";
-	
-	std::cout << "Please enter a string in upper letters : ";
-	std::cin >> normalString;
-	
-	for (char c : normalString) {
-		secretString += std::to_string((int)c - 23);
-	}
-	std::cout << "Secret string : " << secretString << std::endl;
+	std::vector<std::string> vCusts(3);
 
-	normalString = "";
+	vCusts[0] = "Bob";
+	vCusts[1] = "Sue";
+	vCusts[2] = "Tom";
 
-	for (int i = 0; i < secretString.length(); i += 2) {
-		std::string sCharCode = "";
-		sCharCode += secretString[i];
-		sCharCode += secretString[i+1];
-			
-		int nCharCode = std::stoi(sCharCode);
-		char chCharCode = nCharCode + 23;
-		normalString += chCharCode;
-	}
-
-	std::cout << "Original : " << normalString << "\n";
+	std::string sCusts = VectorToString(vCusts, ' ');
+	std::cout << sCusts << std::endl;
 
 	return 0;
+}
+
+std::string VectorToString(std::vector<std::string> stringVector, char separator) {
+
+	std::string result = "";
+
+	for (std::string val : stringVector) {
+		result += val;
+		result += separator;
+	}
+
+	return result;
+	
 }
