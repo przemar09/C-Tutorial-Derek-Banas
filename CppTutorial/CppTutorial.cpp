@@ -6,24 +6,33 @@
 #include <vector>
 #include <numeric>
 #include <ctime>
+#include <string>
 
 int main()
 {
-	srand(time(NULL));
-	int secretNum = std::rand() % 11;
-	int guess = 0;
+	std::string  normalString= "", secretString = "";
+	
+	std::cout << "Please enter a string in upper letters : ";
+	std::cin >> normalString;
+	
+	for (char c : normalString) {
+		secretString += std::to_string((int)c - 23);
+	}
+	std::cout << "Secret string : " << secretString << std::endl;
 
-	while (true) {
+	normalString = "";
 
-		std::cout << "Give a number : ";
-		std::cin >> guess;
-		if (guess < secretNum) std::cout << "Too small.";
-		if (guess > secretNum) std::cout << "Too big.";
-
-		if (guess == secretNum) break;
+	for (int i = 0; i < secretString.length(); i += 2) {
+		std::string sCharCode = "";
+		sCharCode += secretString[i];
+		sCharCode += secretString[i+1];
+			
+		int nCharCode = std::stoi(sCharCode);
+		char chCharCode = nCharCode + 23;
+		normalString += chCharCode;
 	}
 
-	std::cout << "You guessed it!";
+	std::cout << "Original : " << normalString << "\n";
 
 	return 0;
 }
